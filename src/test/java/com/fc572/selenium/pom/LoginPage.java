@@ -1,0 +1,62 @@
+package com.fc572.selenium.pom;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+
+public class LoginPage {
+
+
+    WebDriver webDriver;
+
+    @FindBy(id = "field_uname")
+    WebElement field_uname;
+
+    @FindBy(id = "field_pwd")
+    WebElement field_pwd;
+
+    @FindBy(id = "loginBtn")
+    WebElement loginbtn;
+
+    @FindBy(id = "resetBtn")
+    WebElement resetbtn;
+
+    @FindBy(id = "demo")
+    WebElement textHolder;
+
+    WebDriverWait waitForMe;
+
+    public LoginPage(WebDriver webDriver) {
+        this.webDriver = webDriver;
+        PageFactory.initElements(webDriver, this);
+        waitForMe = new WebDriverWait(this.webDriver, Duration.ofSeconds(3));
+    }
+
+    public void login(String username, String password) {
+        field_uname.sendKeys(username);
+        field_pwd.sendKeys(password);
+        loginbtn.click();
+    }
+
+    public boolean verifyLogin() {
+        try{
+            waitForMe.until(ExpectedConditions.visibilityOf(textHolder));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return textHolder.getText().contains("You are now logged into the Matrix!");
+    }
+
+    public void reset() {
+        resetbtn.click();
+    }
+
+    public boolean verifyReset() {
+        return textHolder.getText().equalsIgnoreCase("");
+    }
+}
