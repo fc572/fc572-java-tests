@@ -1,5 +1,7 @@
-package com.fc572.selenium.pom;
+package com.fc572.selenium.pom.pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,7 +13,7 @@ import java.time.Duration;
 
 public class LoginPage {
 
-
+    private static final Logger logger = LogManager.getLogger();
     WebDriver webDriver;
 
     @FindBy(id = "field_uname")
@@ -47,7 +49,7 @@ public class LoginPage {
         try{
             waitForMe.until(ExpectedConditions.visibilityOf(textHolder));
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            logger.error("Exception: ", e);
         }
         return textHolder.getText().contains("You are now logged into the Matrix!");
     }

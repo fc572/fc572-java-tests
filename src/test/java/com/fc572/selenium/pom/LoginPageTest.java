@@ -1,5 +1,6 @@
 package com.fc572.selenium.pom;
 
+import com.fc572.selenium.pom.pages.LoginPage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,7 +20,7 @@ public class LoginPageTest {
     public void setup() {
         configFileReader = new ConfigFileReader();
         webDriver = new ChromeDriver();
-        String pageUrl=configFileReader.getApplicationUrl()+"/htmls/loginPage.html";
+        String pageUrl = configFileReader.getApplicationUrl() + "/htmls/loginPage.html";
         webDriver.navigate().to(pageUrl);
         webDriver.manage().window().maximize();
         loginPage = new LoginPage(webDriver);
@@ -40,7 +41,8 @@ public class LoginPageTest {
 
     @AfterEach
     public void tearDown() {
-        webDriver.close();
-        webDriver.quit();
+        if (webDriver != null) {
+            webDriver.quit();
+        }
     }
 }

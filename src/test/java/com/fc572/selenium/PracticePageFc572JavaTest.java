@@ -39,8 +39,8 @@ public class PracticePageFc572JavaTest {
         WebElement findMeById = webDriver.findElement(By.id("fieldId"));
         WebElement findMeByName = webDriver.findElement(By.name("fieldName"));
         WebElement findMeByClassName = webDriver.findElement(By.className("fieldClass"));
-        WebElement findMeByLinkText = webDriver.findElement(By.linkText("FullLinkText"));
-        WebElement findMeByPartialLinkText = webDriver.findElement(By.partialLinkText("PartialLin"));
+        WebElement findMeByLinkText = webDriver.findElement(By.linkText("linkToPageTwo"));
+        WebElement findMeByPartialLinkText = webDriver.findElement(By.partialLinkText("linkToPa"));
         WebElement findMeByCssSelector = webDriver.findElement(By.cssSelector("section.main_container ul li:nth-child(1)"));
         WebElement findMeByCssSelector2 = webDriver.findElement(By.cssSelector("section.main_container ul:nth-child(2) > li:nth-child(1) > ul:nth-child(1) > li:nth-child(1) > ol:nth-child(1) > li:nth-child(2)"));
         WebElement findMeByCssSelector3 = webDriver.findElement(By.cssSelector("section.main_container ul:nth-child(2) > li:nth-child(2) > ul:nth-child(1) > li:nth-child(2)"));
@@ -53,8 +53,8 @@ public class PracticePageFc572JavaTest {
         }
         findMeByName.sendKeys("Found By.Name");
         findMeByClassName.click();
-        assertTrue(findMeByLinkText.getText().equalsIgnoreCase("FullLinkText"));
-        assertTrue(findMeByPartialLinkText.getText().equalsIgnoreCase("PartialLinkText"));
+        assertTrue(findMeByLinkText.getText().equalsIgnoreCase("linkToPageTwo"));
+        assertTrue(findMeByPartialLinkText.getText().equalsIgnoreCase("linkToPageTwo"));
         assertTrue(findMeByCssSelector.getText().contains("Item 1"));
         assertTrue(findMeByCssSelector2.getText().contains("Sub Sub Item 1.2"));
         assertTrue(findMeByCssSelector3.getText().contains("Sub Item 2.3"));
