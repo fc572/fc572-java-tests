@@ -1,9 +1,7 @@
 package com.fc572.selenium.pom;
 
 import com.fc572.selenium.pom.pages.LoginPage;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -12,12 +10,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LoginPageTest {
 
-    private WebDriver webDriver;
-    private LoginPage loginPage;
-    private ConfigFileReader configFileReader;
+    private static WebDriver webDriver;
+    private static LoginPage loginPage;
+    private static ConfigFileReader configFileReader;
 
-    @BeforeEach
-    public void setup() {
+    @BeforeAll
+    public static void setup() {
         configFileReader = new ConfigFileReader();
         webDriver = new ChromeDriver();
         String pageUrl = configFileReader.getApplicationUrl() + "/htmls/loginPage.html";
@@ -39,8 +37,8 @@ public class LoginPageTest {
         assertTrue(loginPage.verifyReset());
     }
 
-    @AfterEach
-    public void tearDown() {
+    @AfterAll
+    public static void tearDown() {
         if (webDriver != null) {
             webDriver.quit();
         }

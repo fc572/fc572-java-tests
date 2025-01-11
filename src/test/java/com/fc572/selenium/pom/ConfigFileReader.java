@@ -12,12 +12,12 @@ import java.util.Properties;
 
 public class ConfigFileReader {
 
-    private Properties properties;
-    private final String propertyFilePath = "src/test/java/com/fc572/configs/Configuration.properties";
+    private final Properties properties;
     private static final Logger logger = LogManager.getLogger();
 
 
     public ConfigFileReader(){
+        String propertyFilePath = "src/test/java/com/fc572/configs/Configuration.properties";
         try {
             BufferedReader reader = new BufferedReader(new FileReader(propertyFilePath));
             properties = new Properties();
