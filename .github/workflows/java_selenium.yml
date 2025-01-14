@@ -30,4 +30,4 @@ jobs:
           java-version: '21'
 
       - name: Run Selenium tests
-        run: ./gradlew clean seleniumTest
+        run: ./gradlew seleniumTest
