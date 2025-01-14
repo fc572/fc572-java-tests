@@ -11,15 +11,16 @@ public class BrowserFactory {
     public static synchronized Browser getBrowser() {
         if (playwright == null) {
             playwright = Playwright.create();
-            String browserType = System.getProperty("browser");
-            boolean isHeadless = Boolean.parseBoolean(System.getProperty("headless"));
+        }
+        if(browser == null){
+            String browserType = System.getProperty("browser", "chromium");
+            boolean isHeadless = Boolean.parseBoolean(System.getProperty("headless", "true"));
 
             browser = switch (browserType.toLowerCase()) {
                 case "firefox" -> playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(isHeadless));
                 case "webkit" -> playwright.webkit().launch(new BrowserType.LaunchOptions().setHeadless(isHeadless));
                 default -> playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(isHeadless));
             };
-
         }
         return browser;
     }

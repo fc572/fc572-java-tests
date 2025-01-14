@@ -29,12 +29,5 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Set up JDK
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: '17'
       - name: Run Selenium tests
-        run: ./gradlew clean test
+        run: ./gradlew clean test --tests "com.fc572.selenium.*"

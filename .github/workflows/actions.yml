@@ -38,7 +38,7 @@ jobs:
 
       # Run the Playwright Java tests
       - name: Run tests
-        run: ./gradlew test -Dheadless=true -Dbrowser=chromium
+        run: ./gradlew test  --tests "com.fc572.playwright.*"
 
     # Upload test results
       - name: Archive test results
