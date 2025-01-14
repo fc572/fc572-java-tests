@@ -28,15 +28,6 @@ jobs:
         run: |
           ./gradlew playwrightInstallDeps
 
-      # Cache Gradle dependencies to speed up the workflow
-      - name: Cache Gradle dependencies
-        uses: actions/cache@v3
-        with:
-          path: ~/.gradle/caches
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
-
       # Grant execute permission for the Gradle wrapper script
       - name: Make Gradle wrapper executable
         run: chmod +x gradlew
@@ -49,7 +40,7 @@ jobs:
       - name: Run tests
         run: ./gradlew test -Dheadless=true -Dbrowser=chromium
 
-      # Upload test results (if using JUnit or other test reporters)
+      # Upload test results
       - name: Archive test results
         if: always()
         uses: actions/upload-artifact@v3
@@ -64,5 +55,5 @@ jobs:
         with:
           name: error-logs
           path: |
-            playwright_test_log.txt
-            error_screenshot_*.png
+            /playwright_test_log.txt
+            build/allure-results/screenshots
