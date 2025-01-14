@@ -53,3 +53,11 @@ tasks.register("playwrightInstallDeps", JavaExec) {
     args = ["install-deps"]
     classpath = sourceSets.main.runtimeClasspath
 }
+
+tasks.register('seleniumTest', Test) {
+    include '**/selenium/**'
+}
+
+tasks.register('playwrightTest', Test) {
+    include '**/playwright/**'
+}

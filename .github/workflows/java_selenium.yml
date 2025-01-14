@@ -17,7 +17,7 @@ jobs:
         ports:
           - 4444:4444
         options: >-
-          --shm-size=2g # Increase shared memory to avoid Chrome crashes
+          --shm-size=2g
 
     steps:
       - name: Checkout repository
@@ -30,4 +30,4 @@ jobs:
           java-version: '21'
 
       - name: Run Selenium tests
-        run: ./gradlew clean test --tests "com.fc572.selenium.*"
+        run: ./gradlew clean seleniumTest
