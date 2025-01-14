@@ -24,6 +24,10 @@ jobs:
           java-version: '21' # Change to the version you need
           distribution: 'temurin'
 
+      - name: Install Playwright dependencies
+        run: |
+          ./gradlew playwrightInstallDeps
+
       # Cache Gradle dependencies to speed up the workflow
       - name: Cache Gradle dependencies
         uses: actions/cache@v3

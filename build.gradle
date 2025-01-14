@@ -45,3 +45,11 @@ test {
     // This will allow both IntelliJ VM options and gradle command line to work
     systemProperties = System.properties as Map<String, ?>
 }
+
+tasks.register("playwrightInstallDeps", JavaExec) {
+    group = "playwright"
+    description = "Installs the necessary system dependencies for Playwright browsers."
+    mainClass = "com.microsoft.playwright.CLI"
+    args = ["install-deps"]
+    classpath = sourceSets.main.runtimeClasspath
+}
