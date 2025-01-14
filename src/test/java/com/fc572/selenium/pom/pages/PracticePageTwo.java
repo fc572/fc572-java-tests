@@ -23,22 +23,23 @@ public class PracticePageTwo {
         PageFactory.initElements(webDriver, this);
         waitForMe = new WebDriverWait(this.webDriver, Duration.ofSeconds(3));
     }
+
     @FindBy(className = "link-test-container")
     WebElement linkTestContainer;
 
     @FindBy(id = "return-link")
     WebElement returnLink;
 
-    public String getPageTwoText(){
+    public String getPageTwoText() {
         return linkTestContainer.getText();
     }
 
-    public void clickReturnLink(){
+    public void clickReturnLink() {
         returnLink.click();
     }
 
-    public void waitForPageToLoad(){
-        try{
+    public void waitForPageToLoad() {
+        try {
             waitForMe.until(ExpectedConditions.visibilityOf(returnLink));
         } catch (Exception e) {
             logger.error("Exception: ", e);

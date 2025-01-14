@@ -46,7 +46,7 @@ public class LoginPage {
     }
 
     public boolean verifyLogin() {
-        try{
+        try {
             waitForMe.until(ExpectedConditions.visibilityOf(textHolder));
         } catch (Exception e) {
             logger.error("Exception: ", e);

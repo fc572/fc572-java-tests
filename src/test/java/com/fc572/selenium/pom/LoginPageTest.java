@@ -1,7 +1,10 @@
 package com.fc572.selenium.pom;
 
 import com.fc572.selenium.pom.pages.LoginPage;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -25,12 +28,14 @@ public class LoginPageTest {
     }
 
     @Test
+    @DisplayName("Login page")
     public void checkLogin() {
         loginPage.login("Neo", "redpill");
         assertTrue(loginPage.verifyLogin());
     }
 
     @Test
+    @DisplayName("Login page reset")
     public void checkResetButton() {
         checkLogin();
         loginPage.reset();

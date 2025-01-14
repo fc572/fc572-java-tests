@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'io.qameta.allure' version '2.11.2'
 }
 
 group = 'fc572'
@@ -9,22 +10,38 @@ repositories {
     mavenCentral()
 }
 
+java {
+    sourceCompatibility = "21.0"
+    targetCompatibility = "21.0"
+}
+
 dependencies {
 
+    implementation 'org.aspectj:aspectjweaver:1.9.22'
 
-    // https://mvnrepository.com/artifact/com.microsoft.playwright/playwright
-    implementation group: 'com.microsoft.playwright', name: 'playwright', version: '1.49.0'
-
+//    selenium
     testImplementation 'org.seleniumhq.selenium:selenium-java:4.27.0'
     testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.11.4'
-// https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-params
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: '5.11.4'
 
+//    playwright
+    implementation group: 'com.microsoft.playwright', name: 'playwright', version: '1.49.0'
+
+
+//    logging
     implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.24.3'
     implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.24.3'
 
+//   reporting
+    testImplementation 'io.qameta.allure:allure-java-commons:2.24.0'
+    testImplementation 'io.qameta.allure:allure-junit5:2.24.0'
+    allure {
+        version = '2.24.0'  // Match this version
+    }
 }
 
 test {
     useJUnitPlatform()
+    // This will allow both IntelliJ VM options and gradle command line to work
+    systemProperties = System.properties as Map<String, ?>
 }

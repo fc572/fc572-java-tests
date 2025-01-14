@@ -5,8 +5,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -24,7 +24,7 @@ public class PracticePageFc572JavaTest {
     public void setUp() {
         ConfigFileReader configFileReader = new ConfigFileReader();
         webDriver = new ChromeDriver();
-        String pageUrl= configFileReader.getApplicationUrl()+"/htmls/testPlaygroundPage.html";
+        String pageUrl = configFileReader.getApplicationUrl() + "/htmls/testPlaygroundPage.html";
         webDriver.navigate().to(pageUrl);
         webDriver.manage().window().maximize();
     }
@@ -35,6 +35,7 @@ public class PracticePageFc572JavaTest {
     }
 
     @Test
+    @DisplayName("Practise page as a block")
     public void thisIsATest() {
         WebElement findMeById = webDriver.findElement(By.id("fieldId"));
         WebElement findMeByName = webDriver.findElement(By.name("fieldName"));
@@ -46,9 +47,9 @@ public class PracticePageFc572JavaTest {
         WebElement findMeByCssSelector3 = webDriver.findElement(By.cssSelector("section.main_container ul:nth-child(2) > li:nth-child(2) > ul:nth-child(1) > li:nth-child(2)"));
         WebElement findMeByXPath = webDriver.findElement(By.xpath("//input[@type='checkbox' and @value='HappyTesting']"));
 
-        try{
+        try {
             findMeById.sendKeys("Found By.id");
-        }catch (Exception elementNotFound){
+        } catch (Exception elementNotFound) {
             logger.error("The element identified by field id was not found");
         }
         findMeByName.sendKeys("Found By.Name");
@@ -59,9 +60,9 @@ public class PracticePageFc572JavaTest {
         assertTrue(findMeByCssSelector2.getText().contains("Sub Sub Item 1.2"));
         assertTrue(findMeByCssSelector3.getText().contains("Sub Item 2.3"));
         findMeByXPath.click();
-        try{
+        try {
             webDriver.findElement(By.xpath("//input[@name='pickMe' and @value='HappyTesting']")).click();
-        }catch (Exception elementNotFound){
+        } catch (Exception elementNotFound) {
             logger.error(String.valueOf(elementNotFound));
             fail();
         }
