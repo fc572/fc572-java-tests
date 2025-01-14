@@ -56,14 +56,14 @@ tasks.register("playwrightInstallDeps", JavaExec) {
 
 // Task for running Selenium tests
 tasks.register('seleniumTest', Test) {
-    testClassesDirs = fileTree("src/test/javaselenium/tests").builtBy("compileTestJava")
+    testClassesDirs = fileTree("src/test/java/com/fc572/selenium").builtBy("compileTestJava")
     classpath = sourceSets.test.runtimeClasspath
-    useJUnitPlatform() // Ensure JUnit 5 is used as the test framework
+    useJUnitPlatform()
 }
 
 // Task for running Playwright tests
 tasks.register('playwrightTest', Test) {
-    testClassesDirs = fileTree("src/test/javaplaywright/tests").builtBy("compileTestJava")
+    testClassesDirs = fileTree("src/test/java/com/fc572/playwright").builtBy("compileTestJava")
     classpath = sourceSets.test.runtimeClasspath
     useJUnitPlatform() // Ensure JUnit 5 is used as the test framework
 }
