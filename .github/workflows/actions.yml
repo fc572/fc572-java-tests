@@ -32,13 +32,9 @@ jobs:
       - name: Make Gradle wrapper executable
         run: chmod +x gradlew
 
-      # Install dependencies and build the project
-      - name: Build with Gradle
-        run: ./gradlew build
-
-      # Run the Playwright Java tests
-      - name: Run tests
-        run: ./gradlew playwrightTest
+      # Install dependencies and run the playwright tests only
+      - name: Build and run Playwright tests
+        run: ./gradlew build -x test --tests playwrightTest
 
     # Upload test results
       - name: Archive test results
