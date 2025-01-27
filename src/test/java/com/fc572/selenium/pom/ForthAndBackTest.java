@@ -29,7 +29,7 @@ public class ForthAndBackTest {
     public static void setUpClass() {
         ConfigFileReader configFileReader = new ConfigFileReader();
         webDriver = new ChromeDriver();
-        String pageUrl = configFileReader.getApplicationUrl() + "/htmls/testPlaygroundPage.html";
+        String pageUrl = configFileReader.getApplicationUrl() + "/testPlaygroundPage.html";
         webDriver.navigate().to(pageUrl);
         webDriver.manage().window().maximize();
         practicePage = new PracticePage(webDriver);

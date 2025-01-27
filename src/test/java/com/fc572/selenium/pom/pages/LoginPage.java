@@ -45,13 +45,13 @@ public class LoginPage {
         loginbtn.click();
     }
 
-    public boolean verifyLogin() {
+    public boolean verifyFailedLogin() {
         try {
             waitForMe.until(ExpectedConditions.visibilityOf(textHolder));
         } catch (Exception e) {
             logger.error("Exception: ", e);
         }
-        return textHolder.getText().contains("You are now logged into the Matrix!");
+        return textHolder.getText().contains("Please enter the correct user name and password");
     }
 
     public void reset() {

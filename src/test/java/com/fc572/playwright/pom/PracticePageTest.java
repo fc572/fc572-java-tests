@@ -30,7 +30,7 @@ public class PracticePageTest {
         browser = BrowserFactory.getBrowser();
         playwright = Playwright.create();
         browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(true));
-        pageUrl = configFileReader.getApplicationUrl() + "/htmls/testPlaygroundPage.html";
+        pageUrl = configFileReader.getApplicationUrl() + "/testPlaygroundPage.html";
     }
 
     @BeforeEach

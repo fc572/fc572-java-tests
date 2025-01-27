@@ -1,28 +1,40 @@
 package com.fc572.apiTests;
 
-import com.fc572.playwright.ConfigFileReader;
-import org.aspectj.lang.annotation.Before;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
 
-public class ApiOnFc572 {
+public class ApiOnFc572Test {
+
+    static String pageUrl="";
 
     @BeforeAll
     public static void setUp() {
         com.fc572.selenium.pom.ConfigFileReader configFileReader = new com.fc572.selenium.pom.ConfigFileReader();
-        String pageUrl = configFileReader.getApplicationUrl() + ";
+        pageUrl = configFileReader.getApplicationUrl() + "/api/resource/";
     }
 
     @Test
     void getRequestTest() {
+        String id = "12345";
         given()
                 .when()
-                .get(ConfigFileReader)
+                .get(pageUrl + id)
                 .then()
-                .statusCode(200);
+                .statusCode(200)
+                .body("id", equalTo("12345"))
+                .body("message", equalTo("Sample data associated with ID 12345"));
+    }
+
+    @Test
+    void postRequestTest() {
+        given()
+                .when()
+                .post(pageUrl)
+                .then()
+                .statusCode(201)
+                .body("id", equalTo("12345"));
     }
 }

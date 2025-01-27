@@ -1,10 +1,8 @@
 package com.fc572.selenium.pom;
 
+import com.fc572.selenium.pom.pages.LoggedInPage;
 import com.fc572.selenium.pom.pages.LoginPage;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -15,35 +13,46 @@ public class LoginPageTest {
 
     private static WebDriver webDriver;
     private static LoginPage loginPage;
+    private static LoggedInPage loggedInPage;
     private static ConfigFileReader configFileReader;
 
-    @BeforeAll
-    public static void setup() {
+    @BeforeEach
+    public void setup() {
         configFileReader = new ConfigFileReader();
         webDriver = new ChromeDriver();
-        String pageUrl = configFileReader.getApplicationUrl() + "/htmls/loginPage.html";
+        String pageUrl = configFileReader.getApplicationUrl() + "/loginPage.html";
         webDriver.navigate().to(pageUrl);
         webDriver.manage().window().maximize();
         loginPage = new LoginPage(webDriver);
+        loggedInPage = new LoggedInPage(webDriver);
     }
+
 
     @Test
     @DisplayName("Login page")
-    public void checkLogin() {
+    public void checkLoginSuccess() {
         loginPage.login("Neo", "redpill");
-        assertTrue(loginPage.verifyLogin());
+        assertTrue(loggedInPage.verifyLogin());
+    }
+
+
+    @Test
+    @DisplayName("Login page fails")
+    public void checkLoginFails() {
+        loginPage.login("Neo", "bluePill");
+        assertTrue(loginPage.verifyFailedLogin());
     }
 
     @Test
     @DisplayName("Login page reset")
     public void checkResetButton() {
-        checkLogin();
+        checkLoginFails();
         loginPage.reset();
         assertTrue(loginPage.verifyReset());
     }
 
-    @AfterAll
-    public static void tearDown() {
+    @AfterEach
+    public void tearDown() {
         if (webDriver != null) {
             webDriver.quit();
         }
