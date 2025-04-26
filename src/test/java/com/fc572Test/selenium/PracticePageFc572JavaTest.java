@@ -1,6 +1,6 @@
-package com.fc572.selenium;
+package com.fc572Test.selenium;
 
-import com.fc572.selenium.pom.ConfigFileReader;
+import com.fc572Test.selenium.pom.ConfigFileReader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.AfterEach;

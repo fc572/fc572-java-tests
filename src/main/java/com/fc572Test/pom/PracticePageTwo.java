@@ -1,4 +1,4 @@
-package com.fc572.pom;
+package com.fc572Test.pom;
 
 import com.microsoft.playwright.Page;
 

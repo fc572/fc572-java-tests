@@ -1,10 +1,10 @@
-package com.fc572.playwright.pom;
+package com.fc572Test.playwright.pom;
 
-import com.fc572.playwright.ConfigFileReader;
-import com.fc572.playwright.utils.BrowserFactory;
-import com.fc572.playwright.utils.ScreenshotUtil;
-import com.fc572.pom.PracticePage;
-import com.fc572.pom.PracticePageTwo;
+import com.fc572Test.playwright.ConfigFileReader;
+import com.fc572Test.playwright.utils.BrowserFactory;
+import com.fc572Test.playwright.utils.ScreenshotUtil;
+import com.fc572Test.pom.PracticePage;
+import com.fc572Test.pom.PracticePageTwo;
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.Page;

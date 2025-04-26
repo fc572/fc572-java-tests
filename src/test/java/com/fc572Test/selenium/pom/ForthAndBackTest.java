@@ -1,7 +1,7 @@
-package com.fc572.selenium.pom;
+package com.fc572Test.selenium.pom;
 
-import com.fc572.selenium.pom.pages.PracticePage;
-import com.fc572.selenium.pom.pages.PracticePageTwo;
+import com.fc572Test.selenium.pom.pages.PracticePage;
+import com.fc572Test.selenium.pom.pages.PracticePageTwo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.AfterAll;

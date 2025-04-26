@@ -1,7 +1,7 @@
-package com.fc572.selenium.pom;
+package com.fc572Test.selenium.pom;
 
-import com.fc572.selenium.pom.pages.LoggedInPage;
-import com.fc572.selenium.pom.pages.LoginPage;
+import com.fc572Test.selenium.pom.pages.LoggedInPage;
+import com.fc572Test.selenium.pom.pages.LoginPage;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

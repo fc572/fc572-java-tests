@@ -1,4 +1,4 @@
-package com.fc572.playwright.utils;
+package com.fc572Test.playwright.utils;
 
 import com.microsoft.playwright.Page;
 import io.qameta.allure.Allure;

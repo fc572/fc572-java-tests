@@ -1,4 +1,4 @@
-package com.fc572.apiTests;
+package com.fc572Test.apiTests;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -12,7 +12,7 @@ public class ApiOnFc572Test {
 
     @BeforeAll
     public static void setUp() {
-        com.fc572.selenium.pom.ConfigFileReader configFileReader = new com.fc572.selenium.pom.ConfigFileReader();
+        com.fc572Test.selenium.pom.ConfigFileReader configFileReader = new com.fc572Test.selenium.pom.ConfigFileReader();
         pageUrl = configFileReader.getApplicationUrl() + "/api/resource/";
     }
 

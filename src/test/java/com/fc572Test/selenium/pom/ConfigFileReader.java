@@ -1,4 +1,4 @@
-package com.fc572.selenium.pom;
+package com.fc572Test.selenium.pom;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -17,7 +17,7 @@ public class ConfigFileReader {
 
 
     public ConfigFileReader() {
-        String propertyFilePath = "src/test/java/com/fc572/configs/Configuration.properties";
+        String propertyFilePath = "src/test/java/com/fc572Test/configs/Configuration.properties";
         try {
             BufferedReader reader = new BufferedReader(new FileReader(propertyFilePath));
             properties = new Properties();

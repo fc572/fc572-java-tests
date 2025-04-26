@@ -1,4 +1,4 @@
-package com.fc572.playwright;
+package com.fc572Test.playwright;
 
 import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.AriaRole;

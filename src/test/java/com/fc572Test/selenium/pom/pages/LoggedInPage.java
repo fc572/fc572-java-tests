@@ -1,4 +1,4 @@
-package com.fc572.selenium.pom.pages;
+package com.fc572Test.selenium.pom.pages;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

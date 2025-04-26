@@ -1,4 +1,4 @@
-package com.fc572.apiTests;
+package com.fc572Test.apiTests;
 
 import org.junit.jupiter.api.Test;
 
